@@ -30,12 +30,12 @@ from .danfe_verification_msg import DanfeVerificationMsg
 from .models import BaseFieldInfo, ProductInfo
 
 tp_frete = {
-    "0": "0 - Remetente",
-    "1": "1 - Destinatário",
-    "2": "2 - Terceiros",
-    "3": "3 - Próprio/Rem",
-    "4": "4 - Próprio/Dest",
-    "9": "9 - Sem Frete",
+    "0": "Contratação do Frete por conta do Remetente (CIF)",
+    "1": "Contratação do Frete por conta do destinatário/remetente (FOB)",
+    "2": "Contratação do Frete por conta de terceiros",
+    "3": "Transporte próprio por conta do remetente",
+    "4": "Transporte próprio por conta do destinatário",
+    "9": "Sem Ocorrência de transporte.",
 }
 
 
@@ -1219,9 +1219,9 @@ class Danfe(xFPDF):
 
         fields_line1 = [
             BaseFieldInfo(w=0, description="NOME / RAZÃO SOCIAL", content=name),
-            BaseFieldInfo(w=28, description="FRETE POR CONTA", content=tp_frete_text),
+            BaseFieldInfo(w=66, description="FRETE POR CONTA", content=tp_frete_text),
             BaseFieldInfo(w=18, description="CÓDIGO ANTT", content=veic_rntc),
-            BaseFieldInfo(w=23, description="PLACA DO VEÍCULO", content=veic_placa),
+            BaseFieldInfo(w=20, description="PLACA DO VEÍCULO", content=veic_placa),
             BaseFieldInfo(w=8, description="UF", content=veic_uf),
             BaseFieldInfo(w=30, description="CNPJ / CPF", content=cnpj_cpf),
         ]
