@@ -1,0 +1,29 @@
+name: Docs
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 6'  # Executa todo sábado às 6:00 UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Fazer checkout do código
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # Configurar Python com cache
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip' # caching pip dependencies
+
+      # Instalar dependências
+      - name: Install dependencies
+        run: pip install mkdocs mkdocs-material
+      # Construir o site
+      - name: Build MkDocs site
+        run: mkdocs build --strict
