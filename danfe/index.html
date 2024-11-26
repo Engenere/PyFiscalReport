@@ -1,0 +1,855 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/Engenere/BrazilFiscalReport/danfe/">
+      
+      
+        <link rel="prev" href="../cli/">
+      
+      
+        <link rel="next" href="../dacte/">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>DANFE - BrazilFiscalReport</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-in-python-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="BrazilFiscalReport" class="md-header__button md-logo" aria-label="BrazilFiscalReport" data-md-component="logo">
+      
+  <img src="../favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BrazilFiscalReport
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DANFE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cli/" class="md-tabs__link">
+        
+  
+    
+  
+  CLI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  DANFE
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dacte/" class="md-tabs__link">
+        
+  
+    
+  
+  DACTE
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../damdfe/" class="md-tabs__link">
+        
+  
+    
+  
+  DAMDFE
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dacce/" class="md-tabs__link">
+        
+  
+    
+  
+  DACCe
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BrazilFiscalReport" class="md-nav__button md-logo" aria-label="BrazilFiscalReport" data-md-component="logo">
+      
+  <img src="../favicon.ico" alt="logo">
+
+    </a>
+    BrazilFiscalReport
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    DANFE
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    DANFE
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-in-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using in Python Code 🐍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-in-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using in CLI 💻
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-danfe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing DANFE 🎨
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing DANFE 🎨">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options ⚙️
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-example-with-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example with Customization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dacte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DACTE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../damdfe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAMDFE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dacce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DACCe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-in-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using in Python Code 🐍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-in-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using in CLI 💻
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-danfe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing DANFE 🎨
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing DANFE 🎨">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options ⚙️
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-example-with-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example with Customization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>DANFE</h1>
+
+<p>DANFE (Auxiliary Document of the Electronic Invoice) is a printed representation of the NF-e (Electronic Invoice) used in Brazil. It contains key details about the transaction, such as the seller, buyer, products, and taxes.</p>
+<h2 id="using-in-python-code">Using in Python Code 🐍</h2>
+<pre><code class="language-python">from brazilfiscalreport.danfe import Danfe
+
+# Path to the XML file
+xml_file_path = 'nfe.xml'
+
+# Load XML Content
+with open(xml_file_path, &quot;r&quot;, encoding=&quot;utf8&quot;) as file:
+    xml_content = file.read()
+
+# Instantiate the DANFE object with the loaded XML content
+danfe = Danfe(xml=xml_content)
+danfe.output('output_danfe.pdf')
+</code></pre>
+<h2 id="using-in-cli">Using in CLI 💻</h2>
+<pre><code>bfrep danfe /path/to/nfe.xml
+</code></pre>
+<h2 id="customizing-danfe">Customizing DANFE 🎨</h2>
+<p>This section describes how to customize the PDF output of the DANFE using the <code>DanfeConfig</code> class. You can adjust various settings such as margins, fonts, and tax configurations according to your needs.</p>
+<h3 id="configuration-options">Configuration Options ⚙️</h3>
+<p>Here is a breakdown of all the configuration options available in <code>DanfeConfig</code>:</p>
+<hr />
+<p><strong>Logo</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>str</code>, <code>BytesIO</code>, or <code>bytes</code></li>
+<li><strong>Description</strong>: Path to the logo file or binary image data to be included in the PDF. You can use a file path string or pass image data directly.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.logo = "path/to/logo.jpg"  # Using a file path</code></li>
+<li><strong>Default</strong>: No logo.</li>
+</ul>
+<hr />
+<p><strong>Margins</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>Margins</code></li>
+<li><strong>Fields</strong>: <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> (all of type <code>Number</code>)</li>
+<li><strong>Description</strong>: Sets the page margins for the PDF document.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.margins = Margins(top=5, right=5, bottom=5, left=5)</code></li>
+<li><strong>Default</strong>: top, right, bottom, and left are set to 5 mm.</li>
+</ul>
+<hr />
+<p><strong>Font Type</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>FontType</code> (Enum)</li>
+<li><strong>Values</strong>: <code>COURIER</code>, <code>TIMES</code></li>
+<li><strong>Description</strong>: Font style used throughout the PDF document.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.font_type = FontType.COURIER</code></li>
+<li><strong>Default</strong>: <code>TIMES</code></li>
+</ul>
+<hr />
+<p><strong>Receipt Position</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>ReceiptPosition</code> (Enum)</li>
+<li><strong>Values</strong>: <code>TOP</code>, <code>BOTTOM</code>, <code>LEFT</code></li>
+<li><strong>Description</strong>: Position of the receipt section in the DANFE.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.receipt_pos = ReceiptPosition.BOTTOM</code></li>
+<li><strong>Default</strong>: <code>TOP</code> when portrait, <code>LEFT</code> when landscape orientation.</li>
+<li><strong>Note</strong>: In landscape orientation, the receipt position is far left; customization is not permitted.</li>
+</ul>
+<hr />
+<p><strong>Decimal Configuration</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>DecimalConfig</code></li>
+<li><strong>Fields</strong>: <code>price_precision</code>, <code>quantity_precision</code> (both <code>int</code>)</li>
+<li><strong>Description</strong>: Defines the number of decimal places for prices and quantities.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.decimal_config = DecimalConfig(price_precision=2, quantity_precision=2)</code></li>
+<li><strong>Default</strong>: <code>4</code></li>
+</ul>
+<hr />
+<p><strong>Tax Configuration</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>TaxConfiguration</code> (Enum)</li>
+<li><strong>Values</strong>: <code>STANDARD_ICMS_IPI</code>, <code>ICMS_ST_ONLY</code>, <code>WITHOUT_IPI</code></li>
+<li><strong>Description</strong>: Specifies which tax fields to display.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.tax_configuration = TaxConfiguration.WITHOUT_IPI</code></li>
+<li><strong>Default</strong>: <code>STANDARD_ICMS_IPI</code></li>
+<li><strong>Warning</strong>: This feature is not yet implemented.</li>
+</ul>
+<hr />
+<p><strong>Invoice Display</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>InvoiceDisplay</code> (Enum)</li>
+<li><strong>Values</strong>: <code>DUPLICATES_ONLY</code>, <code>FULL_DETAILS</code></li>
+<li><strong>Description</strong>: Controls the level of detail in the invoice section of the DANFE.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.invoice_display = InvoiceDisplay.FULL_DETAILS</code></li>
+<li><strong>Default</strong>: <code>FULL_DETAILS</code></li>
+</ul>
+<hr />
+<p><strong>Display PIS COFINS</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>Bool</code></li>
+<li><strong>Values</strong>: <code>True</code>, <code>False</code></li>
+<li><strong>Description</strong>: Whether or not to display PIS and COFINS taxes in the DANFE totals.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.display_pis_cofins = True</code></li>
+<li><strong>Default</strong>: <code>False</code></li>
+</ul>
+<hr />
+<h3 id="usage-example-with-customization">Usage Example with Customization</h3>
+<p>Here’s how to set up a <code>DanfeConfig</code> object with a full set of customizations::</p>
+<pre><code class="language-python">from brazilfiscalreport.danfe import (
+    Danfe,
+    DanfeConfig,
+    DecimalConfig,
+    FontType,
+    InvoiceDisplay,
+    Margins,
+    ReceiptPosition,
+    TaxConfiguration,
+)
+
+# Path to the XML file
+xml_file_path = 'nfe.xml'
+
+# Load XML Content
+with open(xml_file_path, &quot;r&quot;, encoding=&quot;utf8&quot;) as file:
+    xml_content = file.read()
+
+# Create a configuration instance
+config = DanfeConfig(
+    logo='path/to/logo.png',
+    margins=Margins(top=10, right=10, bottom=10, left=10),
+    receipt_pos=ReceiptPosition.BOTTOM,
+    decimal_config=DecimalConfig(price_precision=2, quantity_precision=2),
+    tax_configuration=TaxConfiguration.ICMS_ST,
+    invoice_display=InvoiceDisplay.FULL_DETAILS,
+    font_type=FontType.TIMES
+)
+
+# Use this config when creating a Danfe instance
+danfe = Danfe(xml_content, config=config)
+danfe.output('output_danfe.pdf')
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "header.autohide", "search.highlight", "search.share", "navigation.top"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
