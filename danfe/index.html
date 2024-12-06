@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
@@ -756,6 +756,23 @@ danfe.output('output_danfe.pdf')
     <code>python
     config.display_pis_cofins = True</code></li>
 <li><strong>Default</strong>: <code>False</code></li>
+</ul>
+<hr />
+<p><strong>Product Description Config</strong></p>
+<ul>
+<li><strong>Type</strong>: <code>ProductDescriptionConfig</code></li>
+<li><strong>Fields</strong>: <code>display_branch</code>, <code>branch_info_prefix</code> and <code>display_additional_info</code></li>
+<li><strong>Description</strong>: Whether or not to display the product branch in the DANFE product description.</li>
+<li><strong>Example</strong>:
+    <code>python
+    config.display_branch = True
+    config.branch_info_prefix = '=&gt;'
+    config.display_additional_info = True</code></li>
+<li><strong>Default</strong>:
+    <code>python
+    config.display_branch = False
+    config.branch_info_prefix = ""
+    config.display_additional_info = True</code></li>
 </ul>
 <hr />
 <h3 id="usage-example-with-customization">Usage Example with Customization</h3>
