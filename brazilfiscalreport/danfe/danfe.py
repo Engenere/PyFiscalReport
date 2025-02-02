@@ -372,6 +372,9 @@ class Danfe(xFPDF):
     def _get_additional_data_content(self):
         fisco = extract_text(self.inf_adic, "infAdFisco")
         obs = extract_text(self.inf_adic, "infCpl")
+        dest_end, cpl, cpl_truncado = self._get_dest_end_text(self.dest)
+        if cpl_truncado:
+            obs += "Complemento do destinatário: " + cpl + "."
         if fisco:
             obs = f"{obs} {fisco}\n"
         obs = " ".join(re.split(r"\s+", obs.strip(), flags=re.UNICODE))
@@ -773,9 +776,7 @@ class Danfe(xFPDF):
             dest_cnpj_cpf = extract_text(self.dest, "CPF")
         dest_cnpj_cpf = format_cpf_cnpj(dest_cnpj_cpf)
         date_emi, time_emi = get_date_utc(extract_text(self.ide, "dhEmi"))
-        dest_end = (
-            f"{extract_text(self.dest,'xLgr')}, " f"{extract_text(self.dest,'nro')}"
-        )
+        dest_end = self._get_dest_end_text(self.dest)[0]
         dest_bairro = extract_text(self.dest, "xBairro")
         dest_cep = extract_text(self.dest, "CEP")
         dest_cep = format_cep(dest_cep)
@@ -913,10 +914,8 @@ class Danfe(xFPDF):
             cnpj_cpf = extract_text(elem, "CPF")
         cnpj_cpf = format_cpf_cnpj(cnpj_cpf)
         ie = extract_text(elem, "IE")
-        logradouro = extract_text(elem, "xLgr")
-        numero = extract_text(elem, "nro")
-        complemento = extract_text(elem, "xCpl")
-        endereco = f"{logradouro}, {numero}, {complemento}"
+        endereco = self._get_dest_end_text(elem)[0]
+
         bairro = extract_text(elem, "xBairro")
         cep = extract_text(elem, "CEP")
         cep = format_cep(cep)
@@ -1412,3 +1411,17 @@ class Danfe(xFPDF):
         add_data_lines = add_data_field.get_content_lines()
         max_add_data_lines = add_data_field.get_max_content_lines()
         return add_data_lines, max_add_data_lines
+
+    def _get_dest_end_text(self, ender):
+        logradouro = extract_text(ender, "xLgr")
+        numero = extract_text(ender, "nro")
+        complemento = extract_text(ender, "xCpl")
+        partes = [logradouro, numero]
+        if complemento:
+            partes.append(complemento)
+        dest_end = ", ".join(partes)
+        cpl_truncado = False
+        if len(dest_end) > 85:
+            dest_end = dest_end[:85]
+            cpl_truncado = True
+        return dest_end, complemento, cpl_truncado
